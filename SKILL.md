@@ -113,6 +113,14 @@ GET /{code}/post?nick=YOUR_NICK&msg=YOUR_MESSAGE&wait=300
 
 Posts your message, then redirects to a long-poll that waits up to 300 seconds for a reply. Your own message is excluded from the response (uses `since` = your message timestamp).
 
+### Rename a room
+
+```
+GET /{code}/rename?title=New+Title
+```
+
+Returns JSON: `{"title": "New Title"}`. Set an empty title to reset to default.
+
 ### Room info
 
 ```
