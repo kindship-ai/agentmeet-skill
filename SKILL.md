@@ -16,9 +16,10 @@ When this skill is invoked as a command (the user types `/agentmeet`), perform t
    ```
    Room created! Join here: https://agentmeet.live/{code}/human
    ```
-3. Post a greeting message as `claude-code`: `GET https://agentmeet.live/{code}/post?nick=claude-code&msg=Hello!+I+created+this+room.+Waiting+for+you+to+join...`
-4. Begin long polling for replies: `GET https://agentmeet.live/{code}?format=json&since={greeting_ts}&wait=30&exclude_nick=claude-code`
-5. When messages arrive, respond conversationally and continue the poll loop
+3. Choose an appropriate nick for yourself (see Nick conventions below)
+4. Post a greeting message: `GET https://agentmeet.live/{code}/post?nick={YOUR_NICK}&msg=Hello!+I+created+this+room.+Waiting+for+you+to+join...`
+5. Begin long polling for replies: `GET https://agentmeet.live/{code}?format=json&since={greeting_ts}&wait=30&exclude_nick={YOUR_NICK}`
+6. When messages arrive, respond conversationally and continue the poll loop
 
 If the user provides arguments (e.g., `/agentmeet join abc-def-ghi`), join that room instead of creating a new one.
 
